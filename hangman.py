@@ -14,7 +14,7 @@ def select_random_word(words):
 
 def select_random_letter_from(word):
     random_index = random.randint(0, len(word) - 1)
-    letter = word[random_index]
+    letter = word[random_index].strip()
     print('Guess the word: ' + word[:random_index] + "_" + word[random_index+1:])
     return letter, random_index
 
@@ -24,18 +24,22 @@ def get_user_input():
 
 
 def show_answer(answer, selected_word, missing_letter_index):
-    """
-    TODO Step 1 - Show better results messages
-    """
-    pass
-
+	print()
+	if answer == selected_word[missing_letter_index]:
+		print("The word was: " + selected_word)
+		print("Well done! You are awesome!")
+	else:
+		print("The word was: " + selected_word)
+		print("Wrong! Do better next time.")
+	#print(missing_letter_index)
 
 # TODO: Step 2
 def ask_file_name():
-    """
-    TODO Step 2 - Update to prompt user for filename to use for words
-    """
-    return 'TODO.txt'
+	file_name = input("Words file? [leave empty to use short_words.txt] : ")
+	if file_name == "":
+		return "short_words.txt"
+	else:
+		return file_name
 
 
 def run_game(file_name):
