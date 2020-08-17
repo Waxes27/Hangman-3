@@ -20,16 +20,16 @@ def select_random_letter_from(word):
 
 
 def get_user_input():
-    return input('Guess the missing letter: ')
+	user = input('Guess the missing letter: ')
+	return user
 
 
 def show_answer(answer, selected_word, missing_letter_index):
-	print()
 	if answer == selected_word[missing_letter_index]:
-		print("The word was: " + selected_word)
+		print("The word was: " + selected_word.strip("\n"))
 		print("Well done! You are awesome!")
 	else:
-		print("The word was: " + selected_word)
+		print("The word was: " + selected_word.strip("\n"))
 		print("Wrong! Do better next time.")
 	#print(missing_letter_index)
 
